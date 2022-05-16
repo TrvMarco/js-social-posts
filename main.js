@@ -97,19 +97,18 @@ for(let i = 0; i < posts.length; i++){
     postsContainer.innerHTML += postHTML;
 }
 
-const likeButton = document.querySelectorAll(".js-likes")
-const greenLike = document.querySelectorAll(".like-button")
-const likeCounter = document.querySelectorAll(".js-likes-counter")
-console.log(likeCounter)
+const likeButton = document.querySelectorAll(".js-likes");
+const greenLike = document.querySelectorAll(".like-button");
+const likeCounter = document.querySelectorAll(".js-likes-counter");
 
 for(let i = 0; i < likeButton.length; i++){
     
     likeButton[i].addEventListener('click', 
         function(){
             greenLike[i].classList.add("like-button--liked");
-            let likeSum = posts[i].likes + 1
+            let likeSum = posts[i].likes + 1;
             likeCounter[i].innerHTML = likeSum;
-            console.log(likeSum)
+            console.log(likeSum);
         }    
     );
 }
