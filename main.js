@@ -99,11 +99,15 @@ for(let i = 0; i < posts.length; i++){
 const likeButton = document.querySelectorAll(".js-likes");
 const greenLike = document.querySelectorAll(".like-button");
 const likeCounter = document.querySelectorAll(".js-likes-counter");
+let likedPosts = [];
 
 for(let i = 0; i < likeButton.length; i++){         
 
     likeButton[i].addEventListener('click', 
         function(){
+            if(!likedPosts.includes(posts[i].id)){
+                likedPosts.push(posts[i].id);
+            }
             if(greenLike[i].classList.contains("like-button--liked")){
                 greenLike[i].classList.remove("like-button--liked");
                 likeCounter[i].innerHTML = posts[i].likes;
@@ -112,6 +116,10 @@ for(let i = 0; i < likeButton.length; i++){
                 let likeSum = posts[i].likes + 1;
                 likeCounter[i].innerHTML = likeSum;
             }
-        }        
+            console.log(likedPosts) 
+        }       
     )  
 }
+
+
+
