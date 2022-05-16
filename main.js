@@ -60,7 +60,6 @@ const posts = [
 //Seleziono container da HTML
 const postsContainer = document.querySelector('#container')
 
-
 for(let i = 0; i < posts.length; i++){
     
     const postHTML = `
@@ -98,4 +97,11 @@ for(let i = 0; i < posts.length; i++){
     postsContainer.innerHTML += postHTML;
 }
 
+let likeButton = document.getElementsByClassName("like-button")
 
+likeButton.addEventListener('click', 
+
+    function(){
+        alert('cliccato')
+    }
+);
