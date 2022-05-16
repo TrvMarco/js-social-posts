@@ -58,7 +58,7 @@ const posts = [
 
 
 //Seleziono container da HTML
-const postsContainer = document.querySelector('#container')
+const postsContainer = document.querySelector('#container');
 
 for(let i = 0; i < posts.length; i++){
     
@@ -82,7 +82,7 @@ for(let i = 0; i < posts.length; i++){
         <div class="post__footer">
             <div class="likes js-likes">
                 <div class="likes__cta">
-                    <a class="like-button  js-like-button" href="#" data-postid="1">
+                    <a class="like-button  js-like-button" href="#" data-postid="${posts[i].id}">
                         <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                         <span class="like-button__label">Mi Piace</span>
                     </a>
@@ -97,11 +97,19 @@ for(let i = 0; i < posts.length; i++){
     postsContainer.innerHTML += postHTML;
 }
 
-let likeButton = document.getElementsByClassName("like-button")
+const likeButton = document.querySelectorAll(".js-likes")
+const greenLike = document.querySelectorAll(".like-button")
+const likeCounter = document.querySelectorAll(".js-likes-counter")
+console.log(likeCounter)
 
-likeButton.addEventListener('click', 
-
-    function(){
-        alert('cliccato')
-    }
-);
+for(let i = 0; i < likeButton.length; i++){
+    
+    likeButton[i].addEventListener('click', 
+        function(){
+            greenLike[i].classList.add("like-button--liked");
+            let likeSum = posts[i].likes + 1
+            likeCounter[i].innerHTML = likeSum;
+            console.log(likeSum)
+        }    
+    );
+}
