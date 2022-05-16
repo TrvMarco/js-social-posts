@@ -56,7 +56,6 @@ const posts = [
     }
 ];
 
-
 //Seleziono container da HTML
 const postsContainer = document.querySelector('#container');
 
